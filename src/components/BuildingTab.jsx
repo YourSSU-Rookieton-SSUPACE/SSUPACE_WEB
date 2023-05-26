@@ -1,5 +1,6 @@
-import { Tab, Tabs, Toolbar, tabsClasses } from '@mui/material';
+import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@mui/material';
 import { useState } from 'react';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import buildingData from '../data/building-data';
 
 function BuildingTab() {
@@ -9,7 +10,7 @@ function BuildingTab() {
     setValue(newValue);
   };
   return (
-    <Toolbar component="nav">
+    <Toolbar component="nav" sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs
         value={value}
         onChange={handleChange}
@@ -29,6 +30,12 @@ function BuildingTab() {
           />
         ))}
       </Tabs>
+
+      <Button variant="outlined" startIcon={<CheckCircleOutlineIcon />} sx={{ minWidth: 90 }}>
+        <Typography variant="button" noWrap>
+          필터
+        </Typography>
+      </Button>
     </Toolbar>
   );
 }
