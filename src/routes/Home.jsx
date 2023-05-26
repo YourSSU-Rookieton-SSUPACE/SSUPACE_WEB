@@ -1,10 +1,12 @@
 import { Container } from '@mui/material';
 import Header from '../components/Header';
+import BuildingTab from '../components/BuildingTab';
 
 function Home() {
   return (
-    <Container maxWidth="xl" sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    <Container maxWidth="xl">
       <Header />
+      <BuildingTab />
     </Container>
   );
 }

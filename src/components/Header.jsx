@@ -3,7 +3,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
@@ -20,7 +20,9 @@ function Header() {
     <Toolbar
       sx={{
         justifyContent: 'space-between',
-        height: '80px',
+        height: '96px',
+        borderBottom: 1,
+        borderColor: 'divider',
       }}
     >
       <Link to="/">
@@ -30,7 +32,7 @@ function Header() {
         freeSolo
         disableClearable
         options={top100Films}
-        sx={{ width: 350 }}
+        sx={{ width: 400 }}
         renderInput={(params) => (
           <TextField
             {...params}
@@ -38,7 +40,7 @@ function Header() {
             sx={{
               '& .MuiOutlinedInput-root': {
                 borderRadius: '30px',
-                paddingLeft: '12px',
+                paddingLeft: '16px',
               },
             }}
             InputProps={{
@@ -54,8 +56,8 @@ function Header() {
       />
       <Button variant="outlined" sx={{ borderRadius: 10 }}>
         <Stack direction="row" spacing={1}>
-          <MenuIcon sx={{ fontSize: 24 }} />
-          <AccountCircleIcon sx={{ fontSize: 24 }} />
+          <MenuIcon sx={{ fontSize: 28 }} />
+          <AccountCircleIcon sx={{ fontSize: 28 }} />
         </Stack>
       </Button>
     </Toolbar>
