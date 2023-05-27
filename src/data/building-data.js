@@ -21,7 +21,7 @@ const buildingData = [
   { id: 3, label: '베어드홀', icon: baird },
   { id: 4, label: '벤처중소기업', icon: venture },
   { id: 5, label: '숭덕경상관', icon: soongdeok },
-  { id: 6, label: '신앙관', icon: sinang },
+  { id: 6, label: '신양관', icon: sinang },
   { id: 7, label: '안익태기념관', icon: ahneaktai },
   { id: 8, label: '웨스터민스터', icon: wester },
   { id: 9, label: '정보과학관', icon: jeongbo },
