@@ -9,15 +9,7 @@ export const SpaceUsage={
     
 };
 
-export const BuildingCategory={
-    H:"형남공학관",
-    W:"웨스트민스터홀",
-    I:"정보과학관",
-    S:"신양관",
-    L:"중앙도서관",
-    M:"미래관",
-    C:"조만식기념관",
-}
+
 
 export const LaptopUsage={
     LAPTOP_TRUE:"노트북 사용해도 돼요!",
@@ -40,3 +32,4 @@ export const DrinkAllow={
 Object.freeze(SpaceUsage);
 Object.freeze(LaptopUsage);
 Object.freeze(ReserveUsage);
+Object.freeze(DrinkAllow);
