@@ -1,9 +1,10 @@
-import { Box, IconButton, MobileStepper, Typography, Chip, Stack } from '@mui/material';
+import { Box, IconButton, MobileStepper, Typography, Chip, Stack, Link } from '@mui/material';
 import { useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { Link as RouterLink } from 'react-router-dom';
 
 function CarouselCard({ space }) {
   const [activeStep, setActiveStep] = useState(0);
@@ -42,27 +43,30 @@ function CarouselCard({ space }) {
       >
         <StarBorderIcon />
       </IconButton>
-      <SwipeableViews
-        axis="x"
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {space.images.map((image) => (
-          <Box
-            key={image.id}
-            component="img"
-            src={image.url}
-            sx={{
-              height: 275,
-              display: 'block',
-              overflow: 'hidden',
-              width: '100%',
-              borderRadius: 3,
-            }}
-          />
-        ))}
-      </SwipeableViews>
+      <Link component={RouterLink} to={`/space/${space.id}`}>
+        <SwipeableViews
+          axis="x"
+          index={activeStep}
+          onChangeIndex={handleStepChange}
+          enableMouseEvents
+        >
+          {space.images.map((image) => (
+            <Box
+              key={image.id}
+              component="img"
+              src={image.url}
+              sx={{
+                height: 275,
+                display: 'block',
+                overflow: 'hidden',
+                width: '100%',
+                borderRadius: 3,
+              }}
+            />
+          ))}
+        </SwipeableViews>
+      </Link>
+
       <Box
         sx={{
           position: 'absolute',

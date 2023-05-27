@@ -1,4 +1,12 @@
-import { Toolbar, Autocomplete, TextField, Button, Stack, InputAdornment } from '@mui/material';
+import {
+  Toolbar,
+  Autocomplete,
+  TextField,
+  Button,
+  Stack,
+  InputAdornment,
+  Paper,
+} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -28,32 +36,35 @@ function Header() {
       <Link to="/">
         <img src={logo} alt="logo" height={56} />
       </Link>
-      <Autocomplete
-        freeSolo
-        disableClearable
-        options={top100Films}
-        sx={{ width: 400 }}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            placeholder="당신의 공간을 스페이스하세요!"
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                borderRadius: '30px',
-                paddingLeft: '16px',
-              },
-            }}
-            InputProps={{
-              ...params.InputProps,
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
-        )}
-      />
+      <Paper elevation={3} sx={{ borderRadius: 30 }}>
+        <Autocomplete
+          freeSolo
+          disableClearable
+          options={top100Films}
+          sx={{ width: 400 }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              placeholder="당신의 공간을 스페이스하세요!"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: '30px',
+                  paddingLeft: '16px',
+                },
+              }}
+              InputProps={{
+                ...params.InputProps,
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
+          )}
+        />
+      </Paper>
+
       <Button variant="outlined" sx={{ borderRadius: 10 }}>
         <Stack direction="row" spacing={1}>
           <MenuIcon sx={{ fontSize: 28 }} />

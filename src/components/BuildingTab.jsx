@@ -1,6 +1,7 @@
 import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@mui/material';
 import { useState } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { Link } from 'react-router-dom';
 import buildingData from '../data/building-data';
 
 function BuildingTab() {
@@ -9,6 +10,7 @@ function BuildingTab() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
     <Toolbar component="nav" sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs
@@ -24,7 +26,9 @@ function BuildingTab() {
       >
         {buildingData.map((building) => (
           <Tab
+            component={Link}
             key={building.id}
+            to={`/buildings/${building.id}`}
             icon={<img src={building.icon} alt={building.label} />}
             label={building.label}
           />

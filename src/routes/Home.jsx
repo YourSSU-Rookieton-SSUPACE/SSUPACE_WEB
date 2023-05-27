@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
+import { Outlet } from 'react-router-dom';
 import Header from '../components/Header';
 import BuildingTab from '../components/BuildingTab';
-import SpaceCard from '../components/SpaceCard';
 import Footer from '../components/Footer';
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
       <Container maxWidth="xl">
         <Header />
         <BuildingTab />
-        <SpaceCard />
+        <Outlet />
       </Container>
       <Footer />
     </>
