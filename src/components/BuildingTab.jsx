@@ -35,7 +35,7 @@ function BuildingTab() {
         ))}
       </Tabs>
 
-      <Button variant="outlined" startIcon={<CheckCircleOutlineIcon />} sx={{ minWidth: 90 }}>
+      <Button variant="outlined" startIcon={<CheckCircleOutlineIcon />} sx={{ minWidth: 'auto' }}>
         <Typography variant="button" noWrap>
           필터
         </Typography>
