@@ -1,11 +1,16 @@
 import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import BuildingData from '../data/BuildingData';
 
 function BuildingTab() {
+  const { buildingId } = useParams();
   const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    setValue(buildingId - 1);
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

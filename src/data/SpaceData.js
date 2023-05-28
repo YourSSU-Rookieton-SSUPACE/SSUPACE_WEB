@@ -5,7 +5,7 @@ const SpaceData = [
     id: 0,
     name: '조만식 기념관 3층',
     building: {
-      id: 6,
+      id: 10,
       name: '조만식기념관',
     },
     location: '조만식 기념관 3층 계단 옆, 엘레베이터 앞',
@@ -26,7 +26,7 @@ const SpaceData = [
     id: 1,
     name: '형남홀',
     building: {
-      id: 0,
+      id: 16,
       name: '형남공학관',
     },
     location: '형남공학관 3층',
@@ -47,7 +47,7 @@ const SpaceData = [
     id: 2,
     name: '형남공학관 바테이블',
     building: {
-      id: 0,
+      id: 16,
       name: '형님공학관',
     },
     location: '형남공학관 모든 층',
@@ -69,7 +69,7 @@ const SpaceData = [
     name: '기계창',
     location: '정보과학관 1층',
     building: {
-      id: 2,
+      id: 9,
       name: '정보과학관',
     },
     photo: [
@@ -96,7 +96,7 @@ const SpaceData = [
     name: '슈게더',
     location: '정보과학관 지하1층',
     building: {
-      id: 2,
+      id: 9,
       name: '정보과학관',
     },
     photo: [
@@ -123,7 +123,7 @@ const SpaceData = [
     name: '미디어 카페',
     location: '정보과학관 지하1층',
     building: {
-      id: 2,
+      id: 9,
       name: '정보과학관',
     },
     photo: [
@@ -149,7 +149,7 @@ const SpaceData = [
     name: '테라스',
     location: '정보과학관 2층,3층,4층,5층',
     building: {
-      id: 2,
+      id: 9,
       name: '정보과학관',
     },
     photo: [
@@ -168,7 +168,7 @@ const SpaceData = [
     name: '001',
     location: '정보과학관 지하1층',
     building: {
-      id: 2,
+      id: 9,
       name: '정보과학관',
     },
     photo: [
@@ -194,7 +194,7 @@ const SpaceData = [
     name: '로비',
     location: '도서관 1층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -225,7 +225,7 @@ const SpaceData = [
     name: '숭실스퀘어',
     location: '도서관1층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -254,7 +254,7 @@ const SpaceData = [
     name: '세미나룸',
     location: '도서관1층 숭실스퀘어',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: ['https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'],
@@ -277,7 +277,7 @@ const SpaceData = [
     name: '숭실스퀘어 ON',
     location: '도서관 2층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -306,7 +306,7 @@ const SpaceData = [
     name: '오픈 열람실',
     location: '도서관 2층 왼쪽',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -331,7 +331,7 @@ const SpaceData = [
     name: '사회과학자료실',
     location: '도서관 3층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -356,7 +356,7 @@ const SpaceData = [
     name: '자연과학자료실',
     location: '도서관 3층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -383,7 +383,7 @@ const SpaceData = [
     name: '쉼터',
     location: '도서관 3층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -412,7 +412,7 @@ const SpaceData = [
     name: '인문과학자료실1',
     location: '도서관 4층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -441,7 +441,7 @@ const SpaceData = [
     name: '박사열람실',
     location: '도서관 4층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -466,7 +466,7 @@ const SpaceData = [
     name: '문학자료실',
     location: '도서관 5층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -494,7 +494,7 @@ const SpaceData = [
     name: '마루열람실',
     location: '도서관 6층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -519,7 +519,7 @@ const SpaceData = [
     name: '숭실마루',
     location: '도서관 6층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -542,7 +542,7 @@ const SpaceData = [
     name: '정기간행물실',
     location: '도서관 6층',
     building: {
-      id: 4,
+      id: 11,
       name: '중앙도서관',
     },
     photo: [
@@ -564,7 +564,7 @@ const SpaceData = [
     name: '1층 공부 및 휴식 공간',
     location: '미래관 1층',
     building: {
-      id: 5,
+      id: 1,
       name: '미래관',
     },
     photo: [
@@ -586,7 +586,7 @@ const SpaceData = [
     id: 23,
     name: '신양관 앞 휴식 공간',
     building: {
-      id: 3,
+      id: 6,
       name: '신양관',
     },
     location: '신양관 야외테이블',
@@ -607,7 +607,7 @@ const SpaceData = [
     id: 24,
     name: '숭실 포레스트',
     building: {
-      id: 1,
+      id: 8,
       name: '웨스트민스터홀',
     },
     location: '웨스트민스터홀',
@@ -631,7 +631,7 @@ const SpaceData = [
     id: 25,
     name: '2층 공부 및 휴식 공간',
     building: {
-      id: 1,
+      id: 8,
       name: '웨스트민스터홀',
     },
     location: '웨스트민스터홀',
@@ -655,7 +655,7 @@ const SpaceData = [
     name: '3층 카페 331',
     location: '웨스트민스터홀',
     building: {
-      id: 1,
+      id: 8,
       name: '웨스트민스터홀',
     },
     photo: [
@@ -676,7 +676,7 @@ const SpaceData = [
     name: '4층 공부 및 휴식 공간',
     location: '웨스트민스터홀',
     building: {
-      id: 1,
+      id: 8,
       name: '웨스트민스터홀',
     },
     photo: [
@@ -697,7 +697,7 @@ const SpaceData = [
     name: '조만식 기념관 1층',
     location: '웨스트민스터홀과 조만식기념관 건물이 이어지는 1층',
     building: {
-      id: 6,
+      id: 10,
       name: '조만식기념관',
     },
     photo: [
@@ -721,7 +721,7 @@ const SpaceData = [
     name: '조만식 기념관 2층',
     location: '조만식 기념관 2층 계단 옆, 엘레베이터 앞',
     building: {
-      id: 6,
+      id: 10,
       name: '조만식기념관',
     },
     photo: [

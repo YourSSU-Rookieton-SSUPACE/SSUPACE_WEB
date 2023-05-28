@@ -70,7 +70,7 @@ function CarouselCard({ space }) {
       <Box
         sx={{
           position: 'absolute',
-          bottom: 100,
+          top: 200,
           width: '100%',
         }}
       >
