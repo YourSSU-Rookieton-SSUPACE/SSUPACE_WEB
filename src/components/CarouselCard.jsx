@@ -8,7 +8,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 function CarouselCard({ space }) {
   const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = space.images.length;
+  const maxSteps = space.photo.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -50,11 +50,11 @@ function CarouselCard({ space }) {
           onChangeIndex={handleStepChange}
           enableMouseEvents
         >
-          {space.images.map((image) => (
+          {space.photo.map((imageUrl) => (
             <Box
-              key={image.id}
+              key={imageUrl}
               component="img"
-              src={image.url}
+              src={imageUrl}
               sx={{
                 height: 275,
                 display: 'block',
@@ -128,10 +128,11 @@ function CarouselCard({ space }) {
       </Box>
       <Box sx={{ marginTop: 1 }}>
         <Typography variant="subtitle1">{space.name}</Typography>
-        <Typography variant="subtitle2">정보과학관 지하1층</Typography>
-        <Stack direction="row" spacing={1} marginTop={1}>
-          <Chip label="#소근소근" variant="outlined" size="small" color="primary" />
-          <Chip label="#노트북존" variant="outlined" size="small" color="primary" />
+        <Typography variant="subtitle2">{space.location}</Typography>
+        <Stack direction="row" spacing={1} marginTop={1} useFlexGap flexWrap="wrap">
+          {space.spaceUsage.map((usage) => (
+            <Chip key={usage} label={`#${usage}`} variant="outlined" size="small" color="primary" />
+          ))}
         </Stack>
       </Box>
     </Box>

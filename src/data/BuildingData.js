@@ -15,7 +15,7 @@ import changui from '../assets/building/changui.svg';
 import hankyungjik from '../assets/building/hankyungjik.svg';
 import hyeongnam from '../assets/building/hyeongnam.svg';
 
-const buildingData = [
+const BuildingData = Object.freeze([
   { id: 1, label: '미래관', icon: mirae },
   { id: 2, label: '백마관', icon: baekma },
   { id: 3, label: '베어드홀', icon: baird },
@@ -32,6 +32,6 @@ const buildingData = [
   { id: 14, label: '창의관', icon: changui },
   { id: 15, label: '한경직기념관', icon: hankyungjik },
   { id: 16, label: '형남공학관', icon: hyeongnam },
-];
+]);
 
-export default buildingData;
+export default BuildingData;

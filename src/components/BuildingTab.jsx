@@ -2,7 +2,7 @@ import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@mui/materi
 import { useState } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { Link } from 'react-router-dom';
-import buildingData from '../data/building-data';
+import BuildingData from '../data/BuildingData';
 
 function BuildingTab() {
   const [value, setValue] = useState(0);
@@ -24,7 +24,7 @@ function BuildingTab() {
           },
         }}
       >
-        {buildingData.map((building) => (
+        {BuildingData.map((building) => (
           <Tab
             component={Link}
             key={building.id}
