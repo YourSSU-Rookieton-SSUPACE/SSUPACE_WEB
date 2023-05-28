@@ -1,15 +1,27 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './Home';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import Space from './Space';
+import SpaceCard from '../components/SpaceCard';
+import Home from './Home';
+import ErrorPage from './ErrorPage';
+import { getBuildingSpace } from '../apis';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
-  },
-  {
-    path: '/space/:spaceId',
-    element: <Space />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <Navigate to="/buildings/1" replace /> },
+      {
+        path: 'buildings/:buildingId',
+        element: <SpaceCard />,
+        loader: ({ params }) => getBuildingSpace(params.buildingId),
+      },
+      {
+        path: '/space/:spaceId',
+        element: <Space />,
+      },
+    ],
   },
 ]);
 
