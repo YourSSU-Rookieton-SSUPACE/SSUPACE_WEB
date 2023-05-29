@@ -9,7 +9,7 @@ function BuildingTab() {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    setValue(buildingId - 1);
+    setValue(buildingId - 1 || 0);
   }, []);
 
   const handleChange = (event, newValue) => {

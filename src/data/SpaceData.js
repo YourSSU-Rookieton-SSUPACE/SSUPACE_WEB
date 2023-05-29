@@ -1,4 +1,20 @@
 import { DrinkAllow, LaptopUsage, ReserveUsage, SpaceUsage } from './Hashcode';
+import hyungnamHall1 from '../assets/space/1-1.jpg';
+import hyungnamHall2 from '../assets/space/1-2.jpg';
+import hyungnamHall3 from '../assets/space/1-3.jpg';
+import hyungnamBar1 from '../assets/space/2-1.jpg';
+import hyungnamBar2 from '../assets/space/2-2.jpg';
+import hyungnamBar3 from '../assets/space/2-3.jpg';
+import chang1 from '../assets/space/3-1.jpg';
+import chang2 from '../assets/space/3-2.jpg';
+import chang3 from '../assets/space/3-3.jpg';
+import ssugether1 from '../assets/space/4-1.jpg';
+import ssugether2 from '../assets/space/4-2.jpg';
+import ssugether3 from '../assets/space/4-3.jpg';
+import media1 from '../assets/space/5-1.jpg';
+import terrace1 from '../assets/space/6-1.jpg';
+import zerozero1 from '../assets/space/7-1.jpg';
+import zerozero2 from '../assets/space/7-2.jpg';
 
 const SpaceData = [
   {
@@ -30,11 +46,7 @@ const SpaceData = [
       name: '형남공학관',
     },
     location: '형남공학관 3층',
-    photo: [
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%92%E1%85%A7%E1%86%BC%E1%84%82%E1%85%A1%E1%86%B7%E1%84%92%E1%85%A9%E1%86%AF.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%92%E1%85%A7%E1%86%BC1-1.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%92%E1%85%A7%E1%86%BC1-2.heic',
-    ],
+    photo: [hyungnamHall1, hyungnamHall2, hyungnamHall3],
     time: '24시간',
     seat: 100,
     restrict: '없음',
@@ -51,11 +63,7 @@ const SpaceData = [
       name: '형님공학관',
     },
     location: '형남공학관 모든 층',
-    photo: [
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%87%E1%85%A1%E1%84%90%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%E1%86%AF.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%92%E1%85%A7%E1%86%BC2-1.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%92%E1%85%A7%E1%86%BC2-2.heic',
-    ],
+    photo: [hyungnamBar1, hyungnamBar2, hyungnamBar3],
     time: '24시간',
     seat: 60,
     restrict: '없음',
@@ -72,11 +80,7 @@ const SpaceData = [
       id: 9,
       name: '정보과학관',
     },
-    photo: [
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%84%80%E1%85%A8%E1%84%8E%E1%85%A1%E1%86%BC.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5-1.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5-2.heic',
-    ],
+    photo: [chang1, chang2, chang3],
     time: '10시~17시',
     seat: 74,
     restrict: 'IT대학 학생만 출입가능',
@@ -99,11 +103,7 @@ const SpaceData = [
       id: 9,
       name: '정보과학관',
     },
-    photo: [
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%89%E1%85%B3%E1%84%8B%E1%85%A2%E1%86%AB.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%89%E1%85%B3-1.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%89%E1%85%B3-2.heic',
-    ],
+    photo: [ssugether1, ssugether2, ssugether3],
     time: '10시~21시',
     seat: 75,
     restrict: '컴퓨터학부,소프트웨어학부만 출입가능',
@@ -126,9 +126,7 @@ const SpaceData = [
       id: 9,
       name: '정보과학관',
     },
-    photo: [
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%86%E1%85%B5%E1%84%8F%E1%85%A1.heic',
-    ],
+    photo: [media1],
 
     time: '24시간',
     seat: 20,
@@ -152,9 +150,7 @@ const SpaceData = [
       id: 9,
       name: '정보과학관',
     },
-    photo: [
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%90%E1%85%A6%E1%84%85%E1%85%A1%E1%84%89%E1%85%B3.heic',
-    ],
+    photo: [terrace1],
     time: '오전 7시 ~ 오후 22시',
     seat: 360,
     restrict: '2,3층은 컴퓨터학부/소프트웨어학부만 사용가능\n 5층은 글로벌미디어학부만 사용가능',
@@ -171,13 +167,10 @@ const SpaceData = [
       id: 9,
       name: '정보과학관',
     },
-    photo: [
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/001.heic',
-      'https://jungminbuckets.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%A9%E1%86%BC-1.heic',
-    ],
+    photo: [zerozero1, zerozero2],
     time: '24시간 사용 가능',
     seat: 30,
-    restrict: '컴퓨터학부 소모임  하라오름, 슈벨롭, sccc,스플럭,에이스만 사용가능',
+    restrict: '컴퓨터학부 소모임 하라오름, 슈벨롭, sccc, 스플럭, 에이스만 사용가능',
     spaceUsage: [
       SpaceUsage.CHARGE,
       SpaceUsage.LAPTOP,
