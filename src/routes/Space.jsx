@@ -1,9 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { Container } from '@mui/material';
+import { useLoaderData } from 'react-router-dom';
+import SpaceTitle from '../components/SpaceTitle';
 
 function Space() {
-  const { spaceId } = useParams();
+  const space = useLoaderData();
 
-  return <>Space {spaceId}</>;
+  return (
+    <Container maxWidth="xl">
+      <SpaceTitle space={space} />
+    </Container>
+  );
 }
 
 export default Space;

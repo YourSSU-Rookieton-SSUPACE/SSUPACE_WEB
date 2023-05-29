@@ -5,4 +5,7 @@ export const getBuildingSpace = (buildingId) => {
   return data;
 };
 
-export const getFilteredSpace = () => {};
+export const getSpace = (spaceId) => {
+  const data = SpaceData.find((space) => space.id === Number(spaceId));
+  return data;
+};

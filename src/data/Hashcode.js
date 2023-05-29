@@ -1,6 +1,6 @@
 export const SpaceUsage = {
   QUIET: '소근소근',
-  LAPTOP: '노트북 존',
+  LAPTOP: '노트북존',
   STUDY: '열공모드',
   STUDYROOM: '스터디룸',
   COMMUNITY: '커뮤니티존',
