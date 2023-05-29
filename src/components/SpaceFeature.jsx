@@ -7,6 +7,7 @@ import SpaceFeatureItem from './SpaceFeatureItem';
 import comment from '../assets/space/usage/comment.svg';
 import studyhard from '../assets/space/usage/studyhard.svg';
 import community from '../assets/space/usage/community.svg';
+import healing from '../assets/space/usage/healing.svg';
 import { SpaceUsage, LaptopUsage, ReserveUsage } from '../data/Hashcode';
 
 const SpaceFeatureInfo = Object.freeze([
@@ -31,7 +32,11 @@ function SpaceFeature({ space }) {
 
   return (
     <Grid container spacing={3}>
-      <SpaceFeatureItem imgSrc={feature.src} imgAlt={feature.name} spaceFeature={feature.name} />
+      <SpaceFeatureItem
+        imgSrc={feature?.src || healing}
+        imgAlt={feature?.name || '#힐링존'}
+        spaceFeature={feature?.name || '#힐링존'}
+      />
       <SpaceFeatureItem
         imgSrc={space.laptopUsage === LaptopUsage.LAPTOP_TRUE ? nbyes : nbno}
         imgAlt="notebook"
