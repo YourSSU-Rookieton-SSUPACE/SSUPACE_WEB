@@ -3,7 +3,7 @@ import Space from './Space';
 import SpaceCard from '../components/SpaceCard';
 import Home from './Home';
 import ErrorPage from './ErrorPage';
-import { getBuildingSpace } from '../apis';
+import { getBuildingSpace, getSpace } from '../apis';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: '/space/:spaceId',
         element: <Space />,
+        loader: ({ params }) => getSpace(params.spaceId),
       },
     ],
   },

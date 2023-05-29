@@ -50,11 +50,12 @@ function CarouselCard({ space }) {
           onChangeIndex={handleStepChange}
           enableMouseEvents
         >
-          {space.photo.map((imageUrl) => (
+          {space.photo.map((photo) => (
             <Box
-              key={imageUrl}
+              key={photo.src || photo}
               component="img"
-              src={imageUrl}
+              loading="lazy"
+              src={photo.src || photo}
               sx={{
                 height: 275,
                 display: 'block',
