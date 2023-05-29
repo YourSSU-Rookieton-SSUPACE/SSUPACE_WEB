@@ -2,6 +2,7 @@ import { Container } from '@mui/material';
 import { useLoaderData } from 'react-router-dom';
 import SpaceTitle from '../components/SpaceTitle';
 import SpaceImage from '../components/SpaceImage';
+import SpaceFeature from '../components/SpaceFeature';
 
 function Space() {
   const space = useLoaderData();
@@ -10,6 +11,7 @@ function Space() {
     <Container maxWidth="xl">
       <SpaceTitle space={space} />
       <SpaceImage space={space} />
+      <SpaceFeature space={space} />
     </Container>
   );
 }
