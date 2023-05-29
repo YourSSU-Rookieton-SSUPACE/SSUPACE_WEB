@@ -11,8 +11,8 @@ function SpaceFeatureItem({ imgSrc, imgAlt, spaceFeature }) {
         }}
       >
         <Stack direction="row" spacing={2} alignItems="center">
-          <img src={imgSrc} alt={imgAlt} width={36} />
-          <Typography variant="subtitle1" fontWeight={700} color="text.secondary">
+          <img src={imgSrc} alt={imgAlt} width={40} />
+          <Typography fontSize={18} fontWeight={700} color="text.secondary">
             {spaceFeature}
           </Typography>
         </Stack>
