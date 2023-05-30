@@ -2,11 +2,13 @@ import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@mui/materi
 import { useEffect, useState } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { Link, useParams } from 'react-router-dom';
+import { useTheme } from '@emotion/react';
 import BuildingData from '../data/BuildingData';
 
 function BuildingTab() {
   const { buildingId } = useParams();
   const [value, setValue] = useState(0);
+  const theme = useTheme();
 
   useEffect(() => {
     setValue(buildingId - 1 || 0);
@@ -39,8 +41,14 @@ function BuildingTab() {
           />
         ))}
       </Tabs>
-
-      <Button variant="outlined" startIcon={<CheckCircleOutlineIcon />} sx={{ minWidth: 'auto' }}>
+      <Button
+        variant="outlined"
+        size={theme.breakpoints.down('sm') && 'small'}
+        startIcon={<CheckCircleOutlineIcon />}
+        sx={{
+          minWidth: 'auto',
+        }}
+      >
         <Typography variant="button" noWrap>
           필터
         </Typography>

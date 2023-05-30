@@ -9,3 +9,7 @@ export const getSpace = (spaceId) => {
   const data = SpaceData.find((space) => space.id === Number(spaceId));
   return data;
 };
+export const getSpaceNames = () => {
+  const data = SpaceData.map((space) => space.name);
+  return data;
+};

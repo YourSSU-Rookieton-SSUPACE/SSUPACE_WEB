@@ -1,4 +1,5 @@
-import { ImageList, ImageListItem } from '@mui/material';
+import { useTheme } from '@emotion/react';
+import { ImageList, ImageListItem, useMediaQuery } from '@mui/material';
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -8,10 +9,17 @@ function srcset(image, size, rows = 1, cols = 1) {
 }
 
 function SpaceImage({ space }) {
+  const theme = useTheme();
+  const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <ImageList variant="quilted" cols={4} rowHeight={200}>
+    <ImageList variant="quilted" cols={4} rowHeight={200} sx={{ marginBottom: '24px' }}>
       {space.photo.map((photo) => (
-        <ImageListItem key={photo.src || photo} cols={photo.cols || 1} rows={photo.rows || 1}>
+        <ImageListItem
+          key={photo.src || photo}
+          cols={isMobileView ? 4 : photo.cols || 1}
+          rows={isMobileView ? 1 : photo.rows || 1}
+        >
           <img
             {...srcset(photo.src || photo, 200, photo.rows, photo.cols)}
             alt={space.name}
