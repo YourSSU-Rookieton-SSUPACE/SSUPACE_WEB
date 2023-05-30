@@ -4,12 +4,14 @@ import SpaceCard from '../components/SpaceCard';
 import Home from './Home';
 import ErrorPage from './ErrorPage';
 import { getBuildingSpace, getSpace } from '../apis';
+import { loader as tabIndexLoader } from '../components/BuildingTab';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
     errorElement: <ErrorPage />,
+    loader: tabIndexLoader,
     children: [
       { index: true, element: <Navigate to="/buildings/1" replace /> },
       {

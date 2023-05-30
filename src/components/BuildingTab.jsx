@@ -1,16 +1,29 @@
-import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses, useMediaQuery } from '@mui/material';
+import { useState } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { useTheme } from '@emotion/react';
 import BuildingData from '../data/BuildingData';
+import { getBuildingId } from '../apis';
+
+export const loader = ({ params }) => {
+  if (Object.prototype.hasOwnProperty.call(params, 'buildingId')) {
+    return params.buildingId - 1;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(params, 'spaceId')) {
+    const buildingId = getBuildingId(params.spaceId);
+    return buildingId - 1;
+  }
+
+  return 0;
+};
 
 function BuildingTab() {
-  const { buildingId } = useParams();
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    setValue(buildingId - 1 || 0);
-  }, []);
+  const theme = useTheme();
+  const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
+  const tabIndex = useLoaderData();
+  const [value, setValue] = useState(tabIndex);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -39,8 +52,14 @@ function BuildingTab() {
           />
         ))}
       </Tabs>
-
-      <Button variant="outlined" startIcon={<CheckCircleOutlineIcon />} sx={{ minWidth: 'auto' }}>
+      <Button
+        variant="outlined"
+        size={isMobileView ? 'small' : 'medium'}
+        startIcon={<CheckCircleOutlineIcon />}
+        sx={{
+          minWidth: 'auto',
+        }}
+      >
         <Typography variant="button" noWrap>
           필터
         </Typography>

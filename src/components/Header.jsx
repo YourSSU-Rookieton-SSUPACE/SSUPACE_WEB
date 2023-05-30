@@ -6,42 +6,63 @@ import {
   Stack,
   InputAdornment,
   Paper,
+  Box,
+  useTheme,
 } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
-
-const top100Films = [
-  { label: 'The Shawshank Redemption', year: 1994 },
-  { label: 'The Godfather', year: 1972 },
-  { label: 'The Godfather: Part II', year: 1974 },
-  { label: 'The Dark Knight', year: 2008 },
-  { label: '12 Angry Men', year: 1957 },
-  { label: "Schindler's List", year: 1993 },
-  { label: 'Pulp Fiction', year: 1994 },
-];
+import { getSpaceId, getSpaceNames } from '../apis';
 
 function Header() {
+  const theme = useTheme();
+  const navigate = useNavigate();
+  const [search, setSearch] = useState('');
+  const [spaceNames, setSpaceNames] = useState([]);
+
+  useEffect(() => {
+    setSpaceNames(getSpaceNames());
+  }, []);
+
+  const handleChangeSearch = (event, newSearch) => {
+    setSearch(newSearch.trim());
+    const spaceId = getSpaceId(newSearch.trim());
+    navigate(`/space/${spaceId}`);
+  };
+
   return (
     <Toolbar
       sx={{
         justifyContent: 'space-between',
+        [theme.breakpoints.down('sm')]: {
+          justifyContent: 'center',
+        },
         height: '96px',
         borderBottom: 1,
         borderColor: 'divider',
       }}
     >
-      <Link to="/">
-        <img src={logo} alt="logo" height={56} />
-      </Link>
-      <Paper elevation={3} sx={{ borderRadius: 30 }}>
+      <Box
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            display: 'none',
+          },
+        }}
+      >
+        <Link to="/">
+          <img src={logo} alt="logo" height={56} />
+        </Link>
+      </Box>
+      <Paper elevation={3} sx={{ borderRadius: 30, width: '400px' }}>
         <Autocomplete
+          value={search}
+          onChange={handleChangeSearch}
           freeSolo
           disableClearable
-          options={top100Films}
-          sx={{ width: 400 }}
+          options={spaceNames}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -64,13 +85,25 @@ function Header() {
           )}
         />
       </Paper>
-
-      <Button variant="outlined" sx={{ borderRadius: 10 }}>
-        <Stack direction="row" spacing={1}>
-          <MenuIcon sx={{ fontSize: 28 }} />
-          <AccountCircleIcon sx={{ fontSize: 28 }} />
-        </Stack>
-      </Button>
+      <Box
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            display: 'none',
+          },
+        }}
+      >
+        <Button
+          variant="outlined"
+          sx={{
+            borderRadius: 10,
+          }}
+        >
+          <Stack direction="row" spacing={1}>
+            <MenuIcon sx={{ fontSize: 28 }} />
+            <AccountCircleIcon sx={{ fontSize: 28 }} />
+          </Stack>
+        </Button>
+      </Box>
     </Toolbar>
   );
 }

@@ -3,7 +3,7 @@ import { DiscussionEmbed } from 'disqus-react';
 
 function SpaceComment({ spaceId, spaceName }) {
   return (
-    <Box sx={{ paddingTop: '16px' }}>
+    <Box sx={{ paddingTop: '24px' }}>
       <DiscussionEmbed
         shortname="ssupace"
         config={{

@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import { Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
@@ -18,14 +18,14 @@ function Home() {
   }, [params]);
 
   return (
-    <>
-      <Container maxWidth={maxWidth}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+      <Container maxWidth={maxWidth} sx={{ flex: 1 }}>
         <Header />
         <BuildingTab />
         <Outlet />
       </Container>
       <Footer />
-    </>
+    </Box>
   );
 }
 

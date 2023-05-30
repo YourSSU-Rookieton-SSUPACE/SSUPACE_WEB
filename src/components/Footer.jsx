@@ -1,41 +1,51 @@
-import { Container, Link, Stack, Box, Typography } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Container, Stack, Box, Typography } from '@mui/material';
+import { useTheme } from '@emotion/react';
 import footerlogo from '../assets/footerlogo.svg';
 
-const footerLinks = [
-  { id: 1, item: 'Product', url: '/product' },
-  { id: 2, item: 'Features', url: '/features' },
-  { id: 3, item: 'Resources', url: '/resources' },
-  { id: 4, item: <img src={footerlogo} alt="footerlogo" />, url: '/' },
-  { id: 5, item: 'About', url: '/about' },
-  { id: 6, item: 'Blog', url: '/blog' },
-  { id: 7, item: 'Support', url: '/support' },
+const leftFooterItems = [
+  { id: 1, text: 'Product' },
+  { id: 2, text: 'Features' },
+  { id: 3, text: 'Resources' },
+];
+
+const rightFooterItems = [
+  { id: 4, text: 'About' },
+  { id: 5, text: 'Blog' },
+  { id: 6, text: 'Support' },
 ];
 
 function Footer() {
+  const theme = useTheme();
+
   return (
-    <Box component="footer" sx={{ borderTop: 1, borderColor: 'divider', paddingY: 4 }}>
+    <Box component="footer" sx={{ borderTop: 1, borderColor: 'divider' }}>
       <Container maxWidth="lg">
         <Stack
           direction="row"
-          justifyContent="space-evenly"
+          justifyContent="space-around"
           alignItems="center"
-          sx={{ paddingY: 2 }}
+          sx={{
+            paddingY: 4,
+            borderBottom: 1,
+            borderColor: 'divider',
+            [theme.breakpoints.down('sm')]: {
+              display: 'none',
+            },
+          }}
         >
-          {footerLinks.map((link) => (
-            <Link
-              key={link.id}
-              to={link.url}
-              component={RouterLink}
-              underline="hover"
-              variant="button"
-              color="text.secondary"
-            >
-              {link.item}
-            </Link>
+          {leftFooterItems.map((item) => (
+            <Typography key={item.id} variant="button" color="text.secondary">
+              {item.text}
+            </Typography>
+          ))}
+          <img src={footerlogo} alt="footerlogo" />
+          {rightFooterItems.map((item) => (
+            <Typography key={item.id} variant="button" color="text.secondary">
+              {item.text}
+            </Typography>
           ))}
         </Stack>
-        <Typography variant="body2" align="center" color="text.secondary" marginTop={1}>
+        <Typography variant="body2" align="center" color="text.secondary" paddingY={2}>
           © 2023 SSUPACE, YOURSSU
         </Typography>
       </Container>

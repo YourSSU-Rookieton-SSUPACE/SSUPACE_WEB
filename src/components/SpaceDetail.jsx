@@ -14,7 +14,7 @@ function SpaceDetail({ space }) {
   const chargeable = space.spaceUsage.some((usage) => usage === SpaceUsage.CHARGE);
 
   return (
-    <Stack spacing={3} paddingTop={2}>
+    <Stack spacing={3} paddingTop={3}>
       <SpaceDetailItem imgSrc={time} text={`이용시간: ${space.time}`} />
       <SpaceDetailItem
         imgSrc={chargeable ? chargeyes : chargeno}
