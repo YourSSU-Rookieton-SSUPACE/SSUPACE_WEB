@@ -1,12 +1,13 @@
-import GlobalStyle from './styles/GlobalStyle';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import Router from './routes/Router';
+import GlobalTheme from './themes/GlobalTheme';
 
 function App() {
   return (
-    <>
-      <GlobalStyle />
+    <ThemeProvider theme={GlobalTheme}>
+      <CssBaseline />
       <Router />
-    </>
+    </ThemeProvider>
   );
 }
 
