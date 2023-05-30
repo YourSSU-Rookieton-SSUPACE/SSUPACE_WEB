@@ -1,4 +1,4 @@
-import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses } from '@mui/material';
+import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -21,6 +21,7 @@ export const loader = ({ params }) => {
 
 function BuildingTab() {
   const theme = useTheme();
+  const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
   const tabIndex = useLoaderData();
   const [value, setValue] = useState(tabIndex);
 
@@ -53,7 +54,7 @@ function BuildingTab() {
       </Tabs>
       <Button
         variant="outlined"
-        size={theme.breakpoints.down('sm') && 'small'}
+        size={isMobileView ? 'small' : 'medium'}
         startIcon={<CheckCircleOutlineIcon />}
         sx={{
           minWidth: 'auto',
