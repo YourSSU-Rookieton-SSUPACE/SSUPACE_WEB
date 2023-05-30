@@ -12,12 +12,26 @@ import {
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
+import { getSpaceId, getSpaceNames } from '../apis';
 
 function Header() {
   const theme = useTheme();
-  const spaceNames = useLoaderData();
+  const navigate = useNavigate();
+  const [search, setSearch] = useState('');
+  const [spaceNames, setSpaceNames] = useState([]);
+
+  useEffect(() => {
+    setSpaceNames(getSpaceNames());
+  }, []);
+
+  const handleChangeSearch = (event, newSearch) => {
+    setSearch(newSearch.trim());
+    const spaceId = getSpaceId(newSearch.trim());
+    navigate(`/space/${spaceId}`);
+  };
 
   return (
     <Toolbar
@@ -44,6 +58,8 @@ function Header() {
       </Box>
       <Paper elevation={3} sx={{ borderRadius: 30, width: '400px' }}>
         <Autocomplete
+          value={search}
+          onChange={handleChangeSearch}
           freeSolo
           disableClearable
           options={spaceNames}
