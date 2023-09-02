@@ -1,10 +1,11 @@
-import { Box, IconButton, MobileStepper, Typography, Chip, Stack, Link } from '@mui/material';
+import { Box, IconButton, MobileStepper, Link } from '@mui/material';
 import { useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Link as RouterLink } from 'react-router-dom';
+import CarouselCardDetail from './CarouselCardDetail';
 
 function CarouselCard({ space }) {
   const [activeStep, setActiveStep] = useState(0);
@@ -54,7 +55,7 @@ function CarouselCard({ space }) {
             <Box
               key={photo.src || photo}
               component="img"
-              loading="lazy"
+              loading="eager"
               src={photo.src || photo}
               sx={{
                 height: 275,
@@ -127,15 +128,7 @@ function CarouselCard({ space }) {
           }
         />
       </Box>
-      <Box sx={{ marginTop: 1 }}>
-        <Typography variant="subtitle1">{space.name}</Typography>
-        <Typography variant="subtitle2">{space.location}</Typography>
-        <Stack direction="row" spacing={1} marginTop={1} useFlexGap flexWrap="wrap">
-          {space.spaceUsage.map((usage) => (
-            <Chip key={usage} label={`#${usage}`} variant="outlined" size="small" color="primary" />
-          ))}
-        </Stack>
-      </Box>
+      <CarouselCardDetail space={space} />
     </Box>
   );
 }

@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import Space from './Space';
-import SpaceCard from '../components/SpaceCard';
+import SpaceCard from './SpaceCard';
 import Home from './Home';
 import ErrorPage from './ErrorPage';
 import { getBuildingSpace, getSpace } from '../apis';

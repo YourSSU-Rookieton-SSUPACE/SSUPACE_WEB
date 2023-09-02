@@ -1,21 +1,21 @@
 import { Container, Box } from '@mui/material';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useMatch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import BuildingTab from '../components/BuildingTab';
 import Footer from '../components/Footer';
 
 function Home() {
-  const params = useParams();
   const [maxWidth, setMaxWidth] = useState('xl');
+  const match = useMatch('/buildings/:buildingId');
 
   useEffect(() => {
-    if (Object.prototype.hasOwnProperty.call(params, 'buildingId')) {
+    if (match) {
       setMaxWidth('xl');
     } else {
       setMaxWidth('lg');
     }
-  }, [params]);
+  }, [match]);
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
