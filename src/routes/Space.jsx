@@ -15,7 +15,7 @@ function Space() {
       <SpaceImage space={space} />
       <SpaceFeature space={space} />
       <SpaceDetail space={space} />
-      <SpaceComment spaceId={space.id} spaceName={space.name} />
+      <SpaceComment />
     </Container>
   );
 }
