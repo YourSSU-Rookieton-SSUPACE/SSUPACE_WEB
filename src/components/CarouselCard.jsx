@@ -1,4 +1,4 @@
-import { Box, IconButton, MobileStepper, Link } from '@mui/material';
+import { Box, IconButton, MobileStepper, Link, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -9,6 +9,7 @@ import CarouselCardDetail from './CarouselCardDetail';
 
 function CarouselCard({ space }) {
   const [activeStep, setActiveStep] = useState(0);
+  const isMobileView = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const maxSteps = space.photo.length;
 
   const handleNext = () => {
@@ -128,7 +129,7 @@ function CarouselCard({ space }) {
           }
         />
       </Box>
-      <CarouselCardDetail space={space} />
+      {isMobileView || <CarouselCardDetail space={space} />}
     </Box>
   );
 }
