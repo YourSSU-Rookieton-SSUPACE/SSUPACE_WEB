@@ -2,22 +2,17 @@ import {
   Toolbar,
   Autocomplete,
   TextField,
-  Button,
-  Stack,
   InputAdornment,
   Paper,
   Box,
   useMediaQuery,
-  IconButton,
 } from '@mui/material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import TuneIcon from '@mui/icons-material/Tune';
 import { Link, useMatch, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
 import { getSpaceId, getSpaceNames } from '../apis';
+import FilterButton from './FilterButton';
 
 function Header() {
   const isMobileView = useMediaQuery((theme) => theme.breakpoints.down('sm'));
@@ -40,7 +35,7 @@ function Header() {
   return (
     <Toolbar
       sx={{
-        justifyContent: isMobileView ? 'center' : 'space-between',
+        justifyContent: 'center',
         height: '96px',
         borderBottom: 1,
         borderColor: 'divider',
@@ -49,6 +44,7 @@ function Header() {
       <Box
         sx={{
           display: isMobileView && 'none',
+          flex: 1,
         }}
       >
         <Link to="/">
@@ -82,9 +78,7 @@ function Header() {
                 ),
                 endAdornment: isMobileView && (
                   <InputAdornment position="end">
-                    <IconButton>
-                      <TuneIcon />
-                    </IconButton>
+                    <FilterButton />
                   </InputAdornment>
                 ),
               }}
@@ -95,20 +89,9 @@ function Header() {
       <Box
         sx={{
           display: isMobileView && 'none',
+          flex: 1,
         }}
-      >
-        <Button
-          variant="outlined"
-          sx={{
-            borderRadius: 10,
-          }}
-        >
-          <Stack direction="row" spacing={1}>
-            <MenuIcon sx={{ fontSize: 28 }} />
-            <AccountCircleIcon sx={{ fontSize: 28 }} />
-          </Stack>
-        </Button>
-      </Box>
+      />
     </Toolbar>
   );
 }
