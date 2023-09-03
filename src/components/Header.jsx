@@ -2,30 +2,30 @@ import {
   Toolbar,
   Autocomplete,
   TextField,
-  Button,
-  Stack,
   InputAdornment,
   Paper,
   Box,
-  useTheme,
+  useMediaQuery,
 } from '@mui/material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useMatch, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
+import mobilelogo from '../assets/mobilelogo.svg';
 import { getSpaceId, getSpaceNames } from '../apis';
+import FilterButton from './FilterButton';
 
 function Header() {
-  const theme = useTheme();
+  const isMobileView = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const navigate = useNavigate();
+  const match = useMatch('/space/:spaceId');
   const [search, setSearch] = useState('');
-  const [spaceNames, setSpaceNames] = useState([]);
 
   useEffect(() => {
-    setSpaceNames(getSpaceNames());
-  }, []);
+    if (!match) {
+      setSearch('');
+    }
+  }, [match]);
 
   const handleChangeSearch = (event, newSearch) => {
     setSearch(newSearch.trim());
@@ -36,10 +36,7 @@ function Header() {
   return (
     <Toolbar
       sx={{
-        justifyContent: 'space-between',
-        [theme.breakpoints.down('sm')]: {
-          justifyContent: 'center',
-        },
+        justifyContent: 'center',
         height: '96px',
         borderBottom: 1,
         borderColor: 'divider',
@@ -47,9 +44,8 @@ function Header() {
     >
       <Box
         sx={{
-          [theme.breakpoints.down('sm')]: {
-            display: 'none',
-          },
+          display: isMobileView && 'none',
+          flex: 1,
         }}
       >
         <Link to="/">
@@ -62,22 +58,34 @@ function Header() {
           onChange={handleChangeSearch}
           freeSolo
           disableClearable
-          options={spaceNames}
+          options={getSpaceNames()}
           renderInput={(params) => (
             <TextField
               {...params}
-              placeholder="당신의 공간을 스페이스하세요!"
+              placeholder="장소를 검색하세요!"
               sx={{
                 '& .MuiOutlinedInput-root': {
                   borderRadius: '30px',
                   paddingLeft: '16px',
+                  paddingRight: '16px',
                 },
               }}
               InputProps={{
                 ...params.InputProps,
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SearchIcon />
+                    {isMobileView ? (
+                      <Link to="/">
+                        <img src={mobilelogo} alt="logo" width={45} />
+                      </Link>
+                    ) : (
+                      <SearchIcon />
+                    )}
+                  </InputAdornment>
+                ),
+                endAdornment: isMobileView && (
+                  <InputAdornment position="end">
+                    <FilterButton />
                   </InputAdornment>
                 ),
               }}
@@ -87,23 +95,10 @@ function Header() {
       </Paper>
       <Box
         sx={{
-          [theme.breakpoints.down('sm')]: {
-            display: 'none',
-          },
+          display: isMobileView && 'none',
+          flex: 1,
         }}
-      >
-        <Button
-          variant="outlined"
-          sx={{
-            borderRadius: 10,
-          }}
-        >
-          <Stack direction="row" spacing={1}>
-            <MenuIcon sx={{ fontSize: 28 }} />
-            <AccountCircleIcon sx={{ fontSize: 28 }} />
-          </Stack>
-        </Button>
-      </Box>
+      />
     </Toolbar>
   );
 }

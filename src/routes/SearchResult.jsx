@@ -1,8 +1,8 @@
 import { Grid, Typography, Container } from '@mui/material';
 import { useLoaderData } from 'react-router-dom';
-import CarouselCard from './CarouselCard';
+import CarouselCard from '../components/CarouselCard';
 
-function SpaceCard() {
+function SearchResult() {
   const spaceData = useLoaderData();
 
   return (
@@ -17,7 +17,7 @@ function SpaceCard() {
         ) : (
           <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Typography variant="h6" color="text.secondary">
-              추후 업데이트 예정입니다!
+              검색 결과가 없습니다!
             </Typography>
           </Container>
         )}
@@ -26,4 +26,4 @@ function SpaceCard() {
   );
 }
 
-export default SpaceCard;
+export default SearchResult;
