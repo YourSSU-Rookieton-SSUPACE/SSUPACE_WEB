@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link, useMatch, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
+import mobilelogo from '../assets/mobilelogo.svg';
 import { getSpaceId, getSpaceNames } from '../apis';
 import FilterButton from './FilterButton';
 
@@ -61,7 +62,7 @@ function Header() {
           renderInput={(params) => (
             <TextField
               {...params}
-              placeholder="당신의 공간을 스페이스하세요!"
+              placeholder="장소를 검색하세요!"
               sx={{
                 '& .MuiOutlinedInput-root': {
                   borderRadius: '30px',
@@ -73,7 +74,13 @@ function Header() {
                 ...params.InputProps,
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SearchIcon />
+                    {isMobileView ? (
+                      <Link to="/">
+                        <img src={mobilelogo} alt="logo" width={45} />
+                      </Link>
+                    ) : (
+                      <SearchIcon />
+                    )}
                   </InputAdornment>
                 ),
                 endAdornment: isMobileView && (
