@@ -24,3 +24,15 @@ export const getBuildingId = (spaceId) => {
   const buildingId = SpaceData.find((space) => space.id === Number(spaceId))?.building.id;
   return buildingId;
 };
+
+export const getSpaceByUsage = (usages) => {
+  const spaces = SpaceData.filter((space) =>
+    usages.every(
+      (usage) =>
+        [space.laptopUsage, space.reserveUsage, space.drinkallow].includes(usage) ||
+        space.spaceUsage.includes(usage),
+    ),
+  );
+
+  return spaces;
+};
