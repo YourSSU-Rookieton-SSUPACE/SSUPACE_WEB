@@ -1,6 +1,6 @@
 import { Grid, Typography, Container } from '@mui/material';
 import { useLoaderData } from 'react-router-dom';
-import CarouselCard from './CarouselCard';
+import CarouselCard from '../components/CarouselCard';
 
 function SpaceCard() {
   const spaceData = useLoaderData();

@@ -1,39 +1,31 @@
 import { Button, Tab, Tabs, Toolbar, Typography, tabsClasses, useMediaQuery } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import { Link, useLoaderData } from 'react-router-dom';
-import { useTheme } from '@emotion/react';
+import { Link, useParams } from 'react-router-dom';
 import BuildingData from '../data/BuildingData';
 import { getBuildingId } from '../apis';
 
-export const loader = ({ params }) => {
-  if (Object.prototype.hasOwnProperty.call(params, 'buildingId')) {
-    return params.buildingId - 1;
-  }
-
-  if (Object.prototype.hasOwnProperty.call(params, 'spaceId')) {
-    const buildingId = getBuildingId(params.spaceId);
-    return buildingId - 1;
-  }
-
-  return 0;
-};
-
 function BuildingTab() {
-  const theme = useTheme();
-  const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
-  const tabIndex = useLoaderData();
-  const [value, setValue] = useState(tabIndex);
+  const isMobileView = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const params = useParams();
+
+  useEffect(() => {
+    if (Object.prototype.hasOwnProperty.call(params, 'buildingId')) {
+      setValue(params.buildingId - 1);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(params, 'spaceId')) {
+      const buildingId = getBuildingId(params.spaceId);
+      setValue(buildingId - 1);
+    }
+  }, [params]);
 
   return (
     <Toolbar component="nav" sx={{ borderBottom: 1, borderColor: 'divider' }}>
       <Tabs
         value={value}
-        onChange={handleChange}
         variant="scrollable"
         scrollButtons
         sx={{
@@ -54,10 +46,11 @@ function BuildingTab() {
       </Tabs>
       <Button
         variant="outlined"
-        size={isMobileView ? 'small' : 'medium'}
+        size="medium"
         startIcon={<CheckCircleOutlineIcon />}
         sx={{
           minWidth: 'auto',
+          display: isMobileView && 'none',
         }}
       >
         <Typography variant="button" noWrap>

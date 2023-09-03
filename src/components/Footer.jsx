@@ -1,5 +1,4 @@
-import { Container, Stack, Box, Typography } from '@mui/material';
-import { useTheme } from '@emotion/react';
+import { Container, Stack, Box, Typography, useMediaQuery } from '@mui/material';
 import footerlogo from '../assets/footerlogo.svg';
 
 const leftFooterItems = [
@@ -15,7 +14,7 @@ const rightFooterItems = [
 ];
 
 function Footer() {
-  const theme = useTheme();
+  const isMobileView = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   return (
     <Box component="footer" sx={{ borderTop: 1, borderColor: 'divider' }}>
@@ -28,9 +27,7 @@ function Footer() {
             paddingY: 4,
             borderBottom: 1,
             borderColor: 'divider',
-            [theme.breakpoints.down('sm')]: {
-              display: 'none',
-            },
+            display: isMobileView && 'none',
           }}
         >
           {leftFooterItems.map((item) => (

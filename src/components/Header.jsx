@@ -7,25 +7,29 @@ import {
   InputAdornment,
   Paper,
   Box,
-  useTheme,
+  useMediaQuery,
+  IconButton,
 } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { Link, useNavigate } from 'react-router-dom';
+import TuneIcon from '@mui/icons-material/Tune';
+import { Link, useMatch, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
 import { getSpaceId, getSpaceNames } from '../apis';
 
 function Header() {
-  const theme = useTheme();
+  const isMobileView = useMediaQuery((theme) => theme.breakpoints.down('sm'));
   const navigate = useNavigate();
+  const match = useMatch('/space/:spaceId');
   const [search, setSearch] = useState('');
-  const [spaceNames, setSpaceNames] = useState([]);
 
   useEffect(() => {
-    setSpaceNames(getSpaceNames());
-  }, []);
+    if (!match) {
+      setSearch('');
+    }
+  }, [match]);
 
   const handleChangeSearch = (event, newSearch) => {
     setSearch(newSearch.trim());
@@ -36,10 +40,7 @@ function Header() {
   return (
     <Toolbar
       sx={{
-        justifyContent: 'space-between',
-        [theme.breakpoints.down('sm')]: {
-          justifyContent: 'center',
-        },
+        justifyContent: isMobileView ? 'center' : 'space-between',
         height: '96px',
         borderBottom: 1,
         borderColor: 'divider',
@@ -47,9 +48,7 @@ function Header() {
     >
       <Box
         sx={{
-          [theme.breakpoints.down('sm')]: {
-            display: 'none',
-          },
+          display: isMobileView && 'none',
         }}
       >
         <Link to="/">
@@ -62,7 +61,7 @@ function Header() {
           onChange={handleChangeSearch}
           freeSolo
           disableClearable
-          options={spaceNames}
+          options={getSpaceNames()}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -71,6 +70,7 @@ function Header() {
                 '& .MuiOutlinedInput-root': {
                   borderRadius: '30px',
                   paddingLeft: '16px',
+                  paddingRight: '16px',
                 },
               }}
               InputProps={{
@@ -80,6 +80,13 @@ function Header() {
                     <SearchIcon />
                   </InputAdornment>
                 ),
+                endAdornment: isMobileView && (
+                  <InputAdornment position="end">
+                    <IconButton>
+                      <TuneIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
           )}
@@ -87,9 +94,7 @@ function Header() {
       </Paper>
       <Box
         sx={{
-          [theme.breakpoints.down('sm')]: {
-            display: 'none',
-          },
+          display: isMobileView && 'none',
         }}
       >
         <Button

@@ -6,13 +6,15 @@ import BuildingTab from '../components/BuildingTab';
 import Footer from '../components/Footer';
 
 function Home() {
-  const params = useParams();
   const [maxWidth, setMaxWidth] = useState('xl');
+  const params = useParams();
 
   useEffect(() => {
     if (Object.prototype.hasOwnProperty.call(params, 'buildingId')) {
       setMaxWidth('xl');
-    } else {
+    }
+
+    if (Object.prototype.hasOwnProperty.call(params, 'spaceId')) {
       setMaxWidth('lg');
     }
   }, [params]);
