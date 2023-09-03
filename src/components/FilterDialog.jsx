@@ -40,7 +40,7 @@ function FilterDialog({ onClose, selectedValue, open }) {
     });
     setOptions(newOptions);
   };
-  // eslint-disable-next-line no-unused-vars
+
   const handleClickSearch = () => {
     const query = options.filter((option) => option.checked).map((option) => option.usage);
     navigate({
