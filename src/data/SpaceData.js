@@ -24,7 +24,7 @@ const SpaceData = [
       id: 10,
       name: '조만식기념관',
     },
-    location: '조만식 기념관 3층 계단 옆, 엘레베이터 앞',
+    location: '조만식 기념관 3층 계단 옆',
     photo: [
       {
         rows: 2,

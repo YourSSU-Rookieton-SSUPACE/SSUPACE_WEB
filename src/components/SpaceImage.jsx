@@ -1,5 +1,5 @@
 import { Box, ImageList, ImageListItem, useMediaQuery } from '@mui/material';
-import CarouselCard from './CarouselCard';
+import MobileCarouselCard from './MobileCarouselCard';
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -13,7 +13,7 @@ function SpaceImage({ space }) {
 
   return isMobileView ? (
     <Box marginY={2}>
-      <CarouselCard space={space} />
+      <MobileCarouselCard space={space} />
     </Box>
   ) : (
     <ImageList variant="quilted" cols={4} rowHeight={200} sx={{ marginBottom: '24px' }}>

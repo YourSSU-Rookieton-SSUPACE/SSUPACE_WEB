@@ -12,7 +12,6 @@ function BuildingTab() {
   const params = useParams();
 
   useEffect(() => {
-    console.log('render');
     if (Object.prototype.hasOwnProperty.call(params, 'buildingId')) {
       setValue(params.buildingId - 1);
     }
