@@ -56,6 +56,7 @@ function Header() {
         <Autocomplete
           value={search}
           onChange={handleChangeSearch}
+          blurOnSelect
           freeSolo
           disableClearable
           options={getSpaceNames()}
@@ -73,7 +74,12 @@ function Header() {
               InputProps={{
                 ...params.InputProps,
                 startAdornment: (
-                  <InputAdornment position="start">
+                  <InputAdornment
+                    position="start"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                    }}
+                  >
                     {isMobileView ? (
                       <Link to="/">
                         <img src={mobilelogo} alt="logo" width={45} />
@@ -84,7 +90,12 @@ function Header() {
                   </InputAdornment>
                 ),
                 endAdornment: isMobileView && (
-                  <InputAdornment position="end">
+                  <InputAdornment
+                    position="end"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                    }}
+                  >
                     <FilterButton />
                   </InputAdornment>
                 ),

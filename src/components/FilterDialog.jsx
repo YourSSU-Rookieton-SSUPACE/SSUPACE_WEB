@@ -55,26 +55,28 @@ function FilterDialog({ onClose, selectedValue, open }) {
   return (
     <Dialog onClose={handleClose} open={open} maxWidth="xs" fullWidth>
       <AppBar position="static" color="inherit" elevation={0}>
-        <Toolbar
-          sx={{
-            justifyContent: 'space-between',
-          }}
-        >
-          <IconButton
-            onClick={handleClose}
-            aria-label="close"
+        <Toolbar>
+          <Box
             sx={{
-              color: (theme) => theme.palette.grey[500],
+              flex: 1,
             }}
           >
-            <CloseIcon />
-          </IconButton>
+            <IconButton
+              onClick={handleClose}
+              aria-label="close"
+              sx={{
+                color: (theme) => theme.palette.grey[500],
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Box>
           <Typography variant="h6" component="div">
             필터
           </Typography>
           <Box
             sx={{
-              width: '40',
+              flex: 1,
             }}
           />
         </Toolbar>
